@@ -4,10 +4,13 @@ WSGI config for task_manager project.
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
+https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
 
-from django.views.generic import TemplateView
+import os
 
-class IndexView(TemplateView):
-    template_name = 'index.html'
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_manager.settings')
+
+application = get_wsgi_application()
