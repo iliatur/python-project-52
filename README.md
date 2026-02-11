@@ -47,3 +47,21 @@
 git clone git@github.com:iliatur/python-project-52.git
 cd python-project-52
 
+**2. Настройка окружения**
+```bash
+make install
+
+**3. Запуск сервера разработки**
+```bash
+make run
+
+
+## 🧪 Тестирование и качество кода
+Все тесты
+```bash
+make test
+
+С отчетом о покрытии
+```bash
+make test-coverage
+
