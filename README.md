@@ -1,13 +1,7 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iliatur/python-project-52/actions)
-
-
 # Менеджер задач
 
-[![Hexlet tests and linter status](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml)
-[![Actions Status](https://github.com/iliatur/python-project-52/actions/workflows/README.md/badge.svg)](https://github.com/iliatur/python-project-52/actions/workflows/README.md)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ваш-id-codeclimate/maintainability)](https://codeclimate.com/github/iliatur/python-project-52/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ваш-id-codeclimate/test_coverage)](https://codeclimate.com/github/iliatur/python-project-52/test_coverage)
+[![Actions Status](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iliatur/python-project-52/actions)
+
 
 ## 📋 О проекте
 
