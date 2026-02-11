@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">{% trans "Delete task" %}</h1>
+
+    <p>{% blocktrans %}Are you sure you want to delete the task {{ task }}?{% endblocktrans %}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">{% trans "Yes, delete" %}</button>
+    </form>
+</div>
+{% endblock %}
