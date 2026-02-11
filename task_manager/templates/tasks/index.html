@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load i18n django_bootstrap5 %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">{% trans "Tasks" %}</h1>
+    
+    <a href="{% url 'task_create' %}" class="btn btn-primary mb-3">
+        {% trans "Create task" %}
+    </a>
+
+    <form method="get" class="mb-4">
+        {% bootstrap_field filter.form.status show_label=True %}
+        {% bootstrap_field filter.form.executor show_label=True %}
+        {% bootstrap_field filter.form.labels show_label=True %}
+
+        <div class="form-group mb-3">
+            <div class="form-check">
+                <input type="checkbox"
+                        name="self_tasks"
+                        id="id_self_tasks"
+                        class="form-check-input"
+                        {% if request.GET.self_tasks %}checked{% endif %}>
+                <label class="form-check-label" for="id_self_tasks">
+                        {% trans "Only your own tasks" %}
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">{% trans "Show" %}</button>
+    </form>
+
+
+    <table class="table table-striped" style="table-layout: fixed;">
+        <thead>
+            <tr>
+                <th class="col-1">ID</th>
+                <th class="col-2">{% trans "Name" %}</th>
+                <th class="col-2">{% trans "Status" %}</th>
+                <th class="col-2">{% trans "Author" %}</th>
+                <th class="col-2">{% trans "Executor" %}</th>
+                <th class="col-2">{% trans "Creation date" %}</th>
+                <th class="col-1"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td class="col-1">{{ task.id }}</td>
+                <td class="col-2"><a href="{% url 'task_show' task.id %}">{{ task.name }}</a></td>
+                <td class="col-2">{{ task.status.name }}</td>
+                <td class="col-2">{{ task.author.get_full_name }}</td>
+                <td class="col-2">
+                    {% if task.executor %}
+                        {{ task.executor.get_full_name }}
+                    {% endif %}
+                </td>
+                <td class="col-2">{{ task.created_at|date:"d.m.Y H:i" }}</td>
+                <td class="col-1">
+                    <a href="{% url 'task_update' task.id %}">
+                        {% trans "Update" %}
+                    </a>
+                    <br>
+                    <a href="{% url 'task_delete' task.id %}">
+                        {% trans "Delete" %}
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">{% trans "No tasks" %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
