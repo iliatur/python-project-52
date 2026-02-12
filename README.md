@@ -2,7 +2,6 @@
 
 [![Actions Status](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iliatur/python-project-52/actions)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=bugs)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=coverage)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
