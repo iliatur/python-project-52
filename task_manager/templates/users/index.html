@@ -1,14 +1,36 @@
 {% extends "layout.html" %}
-{% load django_bootstrap5 %}
 {% load i18n %}
 
 {% block content %}
-<h1 class="my-4">{% trans "Delete user" %}</h1>
-  <form action="{% url 'user_delete' user.pk %}" method="post">
-    {% csrf_token %}
-    <p>
-      {% blocktrans with username=user.get_full_name %}Are you sure you want to delete {{ username }}?{% endblocktrans %}
-    </p>
-    <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete' %}">
-  </form>
+<h1 class="my-4">{% trans "Users" %}</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>{% trans "Full name" %}</th>
+      <th>{% trans "Username" %}</th>
+      <th>{% trans "Created at" %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+      <tr>
+        <td>{{ user.pk }}</td>
+        <td>{{ user.get_full_name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.date_joined }}</td>
+        <td>
+          <a href="{% url 'user_update' user.pk %}">
+            {% trans "Update" %}
+          </a>
+          <a href="{% url 'user_delete' user.pk %}">
+            {% trans "Delete" %}
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
