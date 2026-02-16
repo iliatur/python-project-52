@@ -98,7 +98,8 @@ class UserDeleteView(
         except ProtectedError:
             messages.error(
                 request,
-                _("It is impossible to delete the user because it is being used")
+                _("It is impossible to delete the user "
+                  "because it is being used")
             )
             return redirect(self.success_url)
 
