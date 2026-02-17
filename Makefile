@@ -29,7 +29,7 @@ test:
 	uv run pytest --ds=task_manager.settings --reuse-db
 
 coverage:
-	uv run coverage run --omit='*/migrations/*,*/settings.py,*/venv/*,*/.venv/*' -m pytest --ds=task_manager.settings
+	uv run coverage run --omit='*/migrations/*,*/settings.py,*/venv/*,*/.venv/*' -m pytest -p no:dotenv --ds=task_manager.settings
 	uv run coverage report --show-missing --skip-covered
 
 ci-install:
