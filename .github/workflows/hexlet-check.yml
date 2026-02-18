@@ -15,8 +15,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      UV_DISABLE_CACHE: 1
     steps:
       - uses: actions/checkout@v6
 
