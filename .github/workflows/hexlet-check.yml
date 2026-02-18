@@ -15,11 +15,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      UV_DISABLE_CACHE: 1
     steps:
       - uses: actions/checkout@v6
-      
-      - name: Clear uv cache
-        run: uv cache clean
 
       - name: Hexlet project check
         uses: hexlet/project-action@release
