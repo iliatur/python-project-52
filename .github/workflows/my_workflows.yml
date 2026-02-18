@@ -58,5 +58,5 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=iliatur_python-project-52
-            -Dsonar.organization=iliatur
+            -Dsonar.organization=ilia-turygin
             -Dsonar.python.coverage.reportPaths=coverage.xml
