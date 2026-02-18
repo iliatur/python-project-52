@@ -1,63 +1,19 @@
-name: Python CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  test-and-sonarqube:
-    runs-on: ubuntu-latest
-
-    env:
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DJANGO_SETTINGS_MODULE: task_manager.settings
-        ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
-        ROLLBAR_ENV: development
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install uv
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Install dependencies
-        run: make ci-install
-
-      - name: Show versions
-        run: |
-          python --version
-          uv --version
-          uv run python -c "import django,sys; print('Django', django.get_version())"
-      
-      - name: Run Ruff linter
-        run: make lint
-
-      - name: Run migrations
-        run: make ci-migrate
-
-      - name: Run tests with coverage
-        run: make ci-test
-
-      - name: SonarQubeScan
-        uses: sonarsource/sonarqube-scan-action@v6
-        continue-on-error: true
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
-        with:
-          args: >
-            -Dsonar.projectKey=iliatur_python-project-52
-            -Dsonar.organization=iliatur
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+имя:  Сборка 
+на: 
+  push: 
+    ветки: 
+      -  main 
+  pull_request: 
+    типы: [ открыт , синхронизация , повторно открыт ]
+ задания: 
+  sonarqube: 
+    имя:  SonarQube 
+    работает на:  ubuntu-latest 
+    шаги: 
+      -  использует:  actions/checkout@v4 
+        с: 
+          fetch-depth:  0   # Поверхностные клоны следует отключить для большей релевантности анализа 
+      -  имя:  SonarQube  Scan 
+        использует:  SonarSource/sonarqube-scan-action@v6 
+        env: 
+          SONAR_TOKEN:  ${{  secrets.SONAR_TOKEN  }}
