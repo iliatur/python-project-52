@@ -1,4 +1,4 @@
-# Менеджер задач
+# Менеджер задач 
 
 [![Actions Status](https://github.com/iliatur/python-project-52/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iliatur/python-project-52/actions)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iliatur_python-project-52&metric=coverage)](https://sonarcloud.io/summary/new_code?id=iliatur_python-project-52)
